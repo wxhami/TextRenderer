@@ -1,10 +1,19 @@
 ﻿Console.WriteLine("specify the path to the directory");
 string Path = Console.ReadLine();
-FileInfo file = GetFile(Path);
-var text = File.ReadAllText(file.FullName);
-Console.WriteLine(text);
 
+FileInfo file = GetFile(Path);
+if (file != null)
+{
+    var text = File.ReadAllText(file.FullName);
+    Console.WriteLine(text);
+}
+else
+{
+    Console.WriteLine("Not found");
+}
 Console.ReadLine();
+
+
 
  FileInfo GetFile(string path)
 {
@@ -26,9 +35,10 @@ Console.ReadLine();
                 fileWithMaxDate = fileInfo;
             }
         }
-     
-
+        
     }
 
     return fileWithMaxDate;
 }
+
+
